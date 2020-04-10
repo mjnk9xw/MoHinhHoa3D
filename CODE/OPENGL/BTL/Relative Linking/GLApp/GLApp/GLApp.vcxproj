@@ -24,6 +24,15 @@
     <None Include="shaders\Sphere.fragmentshader" />
     <None Include="shaders\Sphere.vertexshader" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ProceduralClouds.cpp" />
+    <ClCompile Include="SharderLoad.cpp" />
+    <ClCompile Include="Sphere.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SharedLoad.h" />
+    <ClInclude Include="Sphere.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{7450C454-C962-425B-AE27-0AC2A5C052D2}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
