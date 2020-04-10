@@ -1,4 +1,4 @@
-#include "SharedLoad.h"
+﻿#include "SharedLoad.h"
 #include <fstream>
 #include <algorithm>
 #include <stdio.h>
@@ -15,14 +15,14 @@ using namespace std;
 #include <stdlib.h>
 #include <string.h>
 
-// function load shaders by file path
+// Thực hiện truyền vào file path để đọc các file skydome load ra
 GLuint ShaderLoad::LoadShaders(const char * vertex_file_path, const char * fragment_file_path) {
 	cout << "file path = " << vertex_file_path << endl;
-	// Create the shaders
+	// tạo các shader id
 	GLuint VertexShaderID = glCreateShader(GL_VERTEX_SHADER);
 	GLuint FragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
 
-	// Read the Vertex Shader code from the file
+	// read file bằng ifstream của std
 	std::string VertexShaderCode;
 	std::ifstream VertexShaderStream(vertex_file_path, std::ios::in);
 	if (VertexShaderStream.is_open()) {
@@ -32,7 +32,7 @@ GLuint ShaderLoad::LoadShaders(const char * vertex_file_path, const char * fragm
 		VertexShaderStream.close();
 	}
 
-	// Read the Fragment Shader code from the file
+	// khởi tạo các fragment sharder ( ảnh lặp đi lặp lại )
 	std::string FragmentShaderCode;
 	std::ifstream FragmentShaderStream(fragment_file_path, std::ios::in);
 	if (FragmentShaderStream.is_open()) {
@@ -45,20 +45,20 @@ GLuint ShaderLoad::LoadShaders(const char * vertex_file_path, const char * fragm
 	GLint Result = GL_FALSE;
 	int InfoLogLength;
 
-	// Compile Vertex Shader
+	// biên dịch shader
 	printf("Compiling shader : %s\n", vertex_file_path);
 	char const * VertexSourcePointer = VertexShaderCode.c_str();
 	glShaderSource(VertexShaderID, 1, &VertexSourcePointer, NULL);
 	glCompileShader(VertexShaderID);
 
-	// Check Vertex Shader
+	// check shader
 	glGetShaderiv(VertexShaderID, GL_COMPILE_STATUS, &Result);
 	glGetShaderiv(VertexShaderID, GL_INFO_LOG_LENGTH, &InfoLogLength);
 	std::vector<char> VertexShaderErrorMessage(InfoLogLength);
 	glGetShaderInfoLog(VertexShaderID, InfoLogLength, NULL, &VertexShaderErrorMessage[0]);
 	fprintf(stdout, "%s\n", &VertexShaderErrorMessage[0]);
 
-	// Compile Fragment Shader
+	// biên dịch fragment shader
 	printf("Compiling shader : %s\n", fragment_file_path);
 	char const * FragmentSourcePointer = FragmentShaderCode.c_str();
 	glShaderSource(FragmentShaderID, 1, &FragmentSourcePointer, NULL);

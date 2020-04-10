@@ -9,14 +9,13 @@
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-//#include <common/shader.hpp>
 #include <common/controls.hpp>
 #include "Sphere.h"
 #include "SharedLoad.h"
 #include <windows.h>
 
 using namespace glm;
-#define PI 3.14159265
+#define PI 3.14159265 // khởi tạo pi
 
 // Constants
 float FRONT_THRESHOLD_DISTANCE = 0.99f;
