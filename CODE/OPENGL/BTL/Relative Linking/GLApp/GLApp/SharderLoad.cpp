@@ -1,23 +1,8 @@
 ﻿#include "SharedLoad.h"
-#include <fstream>
-#include <algorithm>
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <vector>
-#include <string>
-#include <iostream>
-#include <assert.h>
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-using namespace std;
-#include "Sphere.h"
-#include <stdlib.h>
-#include <string.h>
 
 // Thực hiện truyền vào file path để đọc các file skydome load ra
 GLuint ShaderLoad::LoadShaders(const char * vertex_file_path, const char * fragment_file_path) {
-	cout << "file path = " << vertex_file_path << endl;
+	std::cout << "file path = " << vertex_file_path << std::endl;
 	// tạo các shader id
 	GLuint VertexShaderID = glCreateShader(GL_VERTEX_SHADER);
 	GLuint FragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
@@ -81,9 +66,9 @@ GLuint ShaderLoad::LoadShaders(const char * vertex_file_path, const char * fragm
 	// Check the program
 	glGetProgramiv(ProgramID, GL_LINK_STATUS, &Result);
 	glGetProgramiv(ProgramID, GL_INFO_LOG_LENGTH, &InfoLogLength);
-	std::vector<char> ProgramErrorMessage(std::max(InfoLogLength, int(1)));
+	/*std::vector<char> ProgramErrorMessage(std::max(InfoLogLength, int(1)));
 	glGetProgramInfoLog(ProgramID, InfoLogLength, NULL, &ProgramErrorMessage[0]);
-	fprintf(stdout, "%s\n", &ProgramErrorMessage[0]);
+	fprintf(stdout, "%s\n", &ProgramErrorMessage[0]);*/
 
 
 	glDeleteShader(VertexShaderID);

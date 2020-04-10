@@ -25,11 +25,16 @@
     <None Include="shaders\Sphere.vertexshader" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ProceduralClouds.cpp" />
+    <ClCompile Include="Cloud.cpp" />
+    <ClCompile Include="Light.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="SharderLoad.cpp" />
     <ClCompile Include="Sphere.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Cloud.h" />
+    <ClInclude Include="Light.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="SharedLoad.h" />
     <ClInclude Include="Sphere.h" />
   </ItemGroup>

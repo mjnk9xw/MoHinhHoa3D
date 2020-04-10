@@ -1,9 +1,20 @@
 #pragma once
-// Include GLEW
+#include <fstream>
+#include <algorithm>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <vector>
+#include <string>
+#include <string.h>
+#include <iostream>
+#include "Sphere.h"
+#include <assert.h>
 #include <GL/glew.h>
-
-// Include GLFW
 #include <GLFW/glfw3.h>
+using namespace std;
+
+
 class ShaderLoad
 {
 public:
